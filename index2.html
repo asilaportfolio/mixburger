@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mix Burger Filiallari</title>
+<style>
+  :root{
+    --gap-lg: 36px; 
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  h1{margin:12px 16px;text-align:center}
+
+  .container{
+    display:flex;
+    height: calc(100vh - 64px); 
+    gap: 0;
+  }
+
+  .text-section{
+    flex:1.1;
+    padding: 20px 24px;
+    overflow-y:auto;
+    border-right:1px solid #eee;
+  }
+
+  #map{
+    flex:1;
+  }
+
+  .branches{
+    display:flex;
+    flex-direction:column;
+    gap: var(--gap-lg);
+  }
+  .branch{
+    line-height:1.55;
+  }
+  .branch-name{
+    font-size:1.15rem;
+    font-weight:700;
+    margin:0 0 6px 0;
+  }
+  .branch-addr{
+    margin:0;
+    color:#444;
+  }
+
+  @media (max-width: 900px){
+    .container{flex-direction:column}
+    #map{height:50vh}
+    .text-section{border-right:none;border-top:1px solid #eee}
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>Mix Burger Filiallari</h1>
+
+<div class="container">
+  <section class="text-section">
+    <div class="branches">
+      <div class="branch">
+        <h3 class="branch-name">Mix Burger Ангрен</h3>
+        <p class="branch-addr">Тошкент вилояти, Ангрен шаҳар, ул. 5 даха, дом 3, кв. 0</p>
+      </div>
+
+      <div class="branch">
+        <h3 class="branch-name">Mix Burger Газалкент</h3>
+        <p class="branch-addr">Тошкент вилояти, Бўстонлиқ тумани, Марказий МСГ, ул. A.Темур, дом 110</p>
+      </div>
+
+      <div class="branch">
+        <h3 class="branch-name">Mix Burger Кибрай</h3>
+        <p class="branch-addr">Тошкент вилояти, Қибрай тумани, Кибрай ГСГ, Шодлик МСГ, ул. A.Навоий, дом 190-190a</p>
+      </div>
+
+      <div class="branch">
+        <h3 class="branch-name">Mix Burger Навои</h3>
+        <p class="branch-addr">Тошкент вилояти, Чирчиқ шаҳар, ул. A.Навоий шох, дом 317 ва 319 орасида</p>
+      </div>
+
+      <div class="branch">
+        <h3 class="branch-name">Mix Burger Ок-Ковок</h3>
+        <p class="branch-addr">g. Чирчик, ул. 8-март ва Нурафшон кучалари кесишмаси</p>
+      </div>
+
+      <div class="branch">
+        <h3 class="branch-name">Mix Burger Октябрь</h3>
+        <p class="branch-addr">Чирчик шахар, A.Темур шох кучаси, Хилола кафеси тугрисида жойлашган</p>
+      </div>
+
+      <div class="branch">
+        <h3 class="branch-name">Mix Burger Троицк</h3>
+        <p class="branch-addr">Тошкент вилояти, Чирчиқ шаҳар, ул. A.Навоий шох, дом 7</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="map">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.87015876973!2d69.24007391542137!3d41.29949527927144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef4e5e9c184b3%3A0x1234567890abcdef!2sTashkent!5e0!3m2!1suz!2s!4v1691769012345"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+</body>
+</html>

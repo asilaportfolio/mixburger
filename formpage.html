@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MixBurger Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f0f0;
+    }
+
+    .login-container {
+      width: 80%;
+      height: 80vh;
+      display: flex;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      background: #fff;
+    }
+
+    .image-side {
+      width: 50%;
+    }
+
+    .image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .form-side {
+      width: 50%;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .form-side h2 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #ff7300;
+      outline: none;
+    }
+
+    .login-btn {
+      background: #ff7300;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background: #ff5400;
+    }
+
+    /* Orqaga qaytish tugmasi */
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #eee;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 15px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #ddd;
+    }
+
+    /* MODAL STYLE */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      width: 400px;
+      text-align: center;
+    }
+
+    .modal-content h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    #userData {
+      text-align: left;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    #confirmBtn {
+      background: #ff7300;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #confirmBtn:hover {
+      background: #ff5400;
+    }
+  </style>
+</head>
+<body>
+<a href="javascript:history.back()" class="back-btn">
+  <i class="fa fa-arrow-left"></i> Orqaga
+</a>
+
+
+<div class="login-container">
+  <!-- Chap taraf -->
+  <div class="image-side">
+    <img src="/img/image.png" alt="Rasm" />
+  </div>
+
+  <!-- O‘ng taraf -->
+  <div class="form-side">
+    <h2>Ro'yxatdan o'tish</h2>
+    <form id="loginForm">
+      <input type="text" id="ism" placeholder="Ismingizni kiriting" required />
+      <input type="text" id="familiya" placeholder="Familiyangizni kiriting" required />
+      <input type="password" id="parol" placeholder="Parolingizni kiriting" required />
+      <input type="tel" id="telefon" placeholder="Telefon raqam" required />
+      <input type="text" id="joy" placeholder="Manzilingizni kiriting" required />
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h3>Siz muvaffaqiyatli ro'yxatdan o'tdingiz </h3>
+    <div id="userData"></div>
+    <button id="confirmBtn">Tasdiqlash</button>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("loginForm");
+  const modal = document.getElementById("modal");
+  const userData = document.getElementById("userData");
+  const confirmBtn = document.getElementById("confirmBtn");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const ism = document.getElementById("ism").value;
+    const familiya = document.getElementById("familiya").value;
+    const parol = document.getElementById("parol").value;
+    const telefon = document.getElementById("telefon").value;
+    const joy = document.getElementById("joy").value;
+
+    userData.innerHTML = `
+      <p><strong>Ism:</strong> ${ism}</p>
+      <p><strong>Familiya:</strong> ${familiya}</p>
+      <p><strong>Parol:</strong> ${parol}</p>
+      <p><strong>Telefon:</strong> ${telefon}</p>
+      <p><strong>Manzil:</strong> ${joy}</p>
+    `;
+
+    modal.style.display = "flex";
+  });
+
+  confirmBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+</script>
+
+</body>
+</html>
